@@ -4,8 +4,6 @@ export RUSTFLAGS="-Ccodegen-units=1"
 
 rustup default stable
 
-cargo install cross --git https://github.com/cross-rs/cross --branch main
-
 pushd zerokit/rln
 
 cargo clean
