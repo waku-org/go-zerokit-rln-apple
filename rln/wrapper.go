@@ -245,7 +245,7 @@ func (r *RLN) GetLeaf(index uint) ([]byte, error) {
 	return C.GoBytes(unsafe.Pointer(out.ptr), C.int(out.len)), nil
 }
 
-func (r *RLN) GetProof(index uint) ([]byte, error) {
+func (r *RLN) GetMerkleProof(index uint) ([]byte, error) {
 	var output []byte
 	out := toBuffer(output)
 
