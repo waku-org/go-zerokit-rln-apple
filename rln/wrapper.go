@@ -159,14 +159,13 @@ func (r *RLN) GenerateRLNProof(input []byte) ([]byte, error) {
 	return C.GoBytes(unsafe.Pointer(out.ptr), C.int(out.len)), nil
 }
 
-func (r *RLN) GenerateRLNProofWithWitness(input []byte, witness []byte) ([]byte, error) {
+func (r *RLN) GenerateRLNProofWithWitness(input []byte) ([]byte, error) {
 	inputBuffer := toCBufferPtr(input)
-	witnessBuffer := toCBufferPtr(witness)
 
 	var output []byte
 	out := toBuffer(output)
 
-	if !bool(C.generate_rln_proof_with_witness(r.ptr, inputBuffer, witnessBuffer, &out)) {
+	if !bool(C.generate_rln_proof_with_witness(r.ptr, inputBuffer, &out)) {
 		return nil, errors.New("could not generate the proof with witness")
 	}
 
