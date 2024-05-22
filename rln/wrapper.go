@@ -161,7 +161,7 @@ func (r *RLN) GenerateRLNProof(input []byte) ([]byte, error) {
 
 func (r *RLN) GenerateRLNProofWithWitness(input []byte) ([]byte, error) {
 	// TODO: Temporally disabled. In RLNv2 this is not enabled yet.
-	return errors.New("not implemented")
+	return nil, errors.New("not implemented")
 
 	/*
 		inputBuffer := toCBufferPtr(input)
